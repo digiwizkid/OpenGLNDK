@@ -54,32 +54,6 @@ GLfloat triangle1VerticesData[] = {
         0.0f, 0.559016994f, 0.0f,
         0.0f, 1.0f, 0.0f, 1.0f};
 
-// This triangle is yellow, cyan, and magenta.
-GLfloat triangle2VerticesData[] = {
-        // X, Y, Z,
-        // R, G, B, A
-        -0.5f, -0.25f, 0.0f,
-        1.0f, 1.0f, 0.0f, 1.0f,
-
-        0.5f, -0.25f, 0.0f,
-        0.0f, 1.0f, 1.0f, 1.0f,
-
-        0.0f, 0.559016994f, 0.0f,
-        1.0f, 0.0f, 1.0f, 1.0f};
-
-// This triangle is white, gray, and black.
-GLfloat triangle3VerticesData[] = {
-        // X, Y, Z,
-        // R, G, B, A
-        -0.5f, -0.25f, 0.0f,
-        1.0f, 1.0f, 1.0f, 1.0f,
-
-        0.5f, -0.25f, 0.0f,
-        0.5f, 0.5f, 0.5f, 1.0f,
-
-        0.0f, 0.559016994f, 0.0f,
-        0.0f, 0.0f, 0.0f, 1.0f};
-
 Native1Lesson::Native1Lesson() {
     mModelMatrix = NULL;
     mMVPMatrix = NULL;
@@ -168,20 +142,6 @@ void Native1Lesson::draw() {
     mModelMatrix->identity();
     mModelMatrix->rotate(angleInDegrees, 0.0f, 0.0f, 1.0f);
     drawTriangle(triangle1VerticesData);
-
-    // Draw one translated a bit down and rotated to be flat on the ground.
-    mModelMatrix->identity();
-    mModelMatrix->translate(0.0f, -1.0f, 0.0f);
-    mModelMatrix->rotate(90.0f, 1.0f, 0.0f, 0.0f);
-    mModelMatrix->rotate(angleInDegrees, 0.0f, 0.0f, 1.0f);
-    drawTriangle(triangle2VerticesData);
-
-    // Draw one translated a bit to the right and rotated to be facing to the left.
-    mModelMatrix->identity();
-    mModelMatrix->translate(1.0f, 0.0f, 0.0f);
-    mModelMatrix->rotate(90.0f, 0.0f, 1.0f, 0.0f);
-    mModelMatrix->rotate(angleInDegrees, 0.0f, 0.0f, 1.0f);
-    drawTriangle(triangle3VerticesData);
 }
 
 void Native1Lesson::drawTriangle(GLfloat *verticesData) {
